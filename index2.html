@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshita Mehendi Studio | Premium Bridal Henna</title>
+    <meta name="description" content="Premium Mehendi Artist in Rajsamand for Weddings, Bridal, Engagement, and Family Functions. Book your luxury henna experience today.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome (For Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           CSS VARIABLES & THEME SETTINGS (Premium Royal Maroon & Gold)
+           ========================================================================== */
+        :root {
+            /* Light Theme */
+            --primary: #5A1827; /* Royal Maroon / Wine */
+            --primary-dark: #2A0B12;
+            --secondary: #D4AF37; /* Luxury Gold */
+            --secondary-light: #F7E7CE; 
+            
+            --bg-main: #FDFBF7; /* Warm Cream */
+            --bg-card: #FFFFFF;
+            --text-main: #222222;
+            --text-muted: #555555;
+            
+            --border-color: rgba(212, 175, 55, 0.3);
+            --glass-bg: rgba(253, 251, 247, 0.95);
+            --glass-border: rgba(212, 175, 55, 0.2);
+            --shadow-soft: 0 10px 30px rgba(90, 24, 39, 0.08);
+            --shadow-gold: 0 5px 20px rgba(212, 175, 55, 0.25);
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* Transitions */
+            --trans-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #1A050A; /* Dark Maroon */
+            --secondary: #D4AF37; 
+            --bg-main: #121212; 
+            --bg-card: #1A1A1A; 
+            --text-main: #FDFBF7;
+            --text-muted: #AAAAAA;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --glass-bg: rgba(18, 18, 18, 0.95);
+            --glass-border: rgba(212, 175, 55, 0.1);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ==========================================================================
+           RESET & GLOBAL STYLES
+           ========================================================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            cursor: auto; /* Reverted to Normal Cursor as requested */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+        
+        a { text-decoration: none; color: inherit; transition: var(--trans-smooth); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* Typography Utilities */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary);
+        }
+        [data-theme="dark"] .section-title { color: var(--secondary); }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .text-gold { color: var(--secondary); }
+        .text-center { text-align: center; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; position: relative; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px; 
+            transition: var(--trans-smooth);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold { background: var(--secondary); color: #111; box-shadow: var(--shadow-gold); }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5); }
+        .btn-outline { background: transparent; color: var(--text-main); border: 1px solid var(--secondary); }
+        .btn-outline:hover { background: var(--secondary); color: #111; }
+
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            box-shadow: var(--shadow-soft);
+            padding: 2rem;
+            transition: var(--trans-smooth);
+        }
+        .glass-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-gold); border-color: var(--secondary); }
+
+        /* Page Loader & Progress */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: var(--primary); display: flex; justify-content: center; align-items: center;
+            z-index: 10000; transition: opacity 0.8s ease;
+        }
+        .loader-logo { font-family: var(--font-heading); color: var(--secondary); font-size: 2.5rem; animation: pulse 2s infinite; letter-spacing: 2px; }
+        @keyframes pulse { 0%, 100% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 1; } }
+
+        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--secondary); z-index: 9998; transition: width 0.1s; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Floating Sparkles */
+        .sparkle {
+            position: fixed; width: 3px; height: 3px; background: var(--secondary); border-radius: 50%;
+            pointer-events: none; z-index: 0; opacity: 0.3;
+            animation: floatUp 10s linear infinite, twinkle 2s ease-in-out infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10%, 90% { opacity: 0.5; transform: scale(1); }
+            100% { transform: translateY(-10vh) scale(0); opacity: 0; }
+        }
+        @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.8; box-shadow: 0 0 8px var(--secondary); } }
+
+        /* Header & Navigation Fixes (Light/Dark Mode Visibility) */
+        header { position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0; z-index: 1000; transition: var(--trans-smooth); background: transparent; }
+        header.scrolled { background: var(--glass-bg); backdrop-filter: blur(15px); padding: 1rem 0; box-shadow: var(--shadow-soft); border-bottom: 1px solid var(--glass-border); }
+        
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--secondary); letter-spacing: 1px; }
+        
+        .nav-links { display: flex; gap: 2.5rem; }
+        /* Default text color on transparent header (Dark background) */
+        .nav-links a { font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; position: relative; cursor: pointer; color: #FFFFFF; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: var(--trans-smooth); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        
+        .nav-actions { display: flex; align-items: center; gap: 1rem; }
+        #theme-toggle, .mobile-menu-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #FFFFFF; }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; }
+
+        /* Text color when header is scrolled (Adapts to Light/Dark mode) */
+        header.scrolled .nav-links a,
+        header.scrolled #theme-toggle,
+        header.scrolled .mobile-menu-btn { color: var(--text-main); }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 300px; height: 100vh; background: var(--bg-main);
+                flex-direction: column; justify-content: center; align-items: center; gap: 2rem; box-shadow: var(--shadow-soft); transition: var(--trans-smooth); z-index: 999;
+            }
+            .nav-links.show { right: 0; }
+            /* Force theme text color inside the mobile menu drawer */
+            .nav-links a { color: var(--text-main) !important; }
+            .mobile-menu-btn { display: block; z-index: 1000; }
+        }
+
+        /* Responsive tweaks for Mobile Screen */
+        @media (max-width: 768px) {
+            section { padding: 4rem 0; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-tags { font-size: 0.9rem; }
+            .hero-buttons { flex-direction: column; }
+            .hero-collage { grid-template-columns: repeat(2, 1fr); }
+            .booking-container { gap: 2rem; }
+            .section-title { font-size: 2rem; margin-bottom: 2rem; }
+        }
+
+        /* Hero Section (Multi-Image Collage) */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding-top: 80px; background-color: #111; }
+        .hero-collage {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 4px;
+            z-index: -2; opacity: 0.4; transform: scale(1.05); animation: slowZoom 20s alternate infinite;
+        }
+        @keyframes slowZoom { 0% { transform: scale(1.05); } 100% { transform: scale(1.15); } }
+        .hero-collage img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%) contrast(110%); }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(90, 24, 39, 0.9) 0%, rgba(26, 5, 10, 0.95) 100%); 
+            z-index: -1;
+        }
+
+        .hero-content { color: #FFFFFF; max-width: 900px; padding: 0 2rem; z-index: 1; }
+        .hero-subtitle { font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase; color: var(--secondary); margin-bottom: 1.5rem; display: block; font-weight: 500; }
+        .hero-title { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: #FFFFFF; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .hero-tags { margin-bottom: 2.5rem; font-weight: 400; font-size: 1.1rem; color: #E5C86A; letter-spacing: 2px; }
+        .hero-tags span { display: inline-block; margin: 0 10px; }
+        .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; }
+        
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.8rem; }
+            .hero-tags { font-size: 0.9rem; }
+            .hero-buttons { flex-direction: column; }
+            .hero-collage { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Highlights Section */
+        .highlights-section { background-color: #0b0b0b; padding: 6rem 0; overflow: hidden; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        .highlights-container { display: flex; align-items: center; gap: 4rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .highlights-text { flex: 0 0 35%; }
+        .highlights-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: #FFFFFF; }
+        .highlights-title span { color: var(--secondary); font-style: italic; font-weight: normal;}
+        .highlights-text p { color: #cccccc; font-size: 1.1rem; line-height: 1.8; }
+        
+        .highlights-slider-container {
+            flex: 1; overflow: hidden; position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+        .highlights-track { display: flex; gap: 1.5rem; width: max-content; animation: scrollSlider 30s linear infinite; }
+        .highlights-track:hover { animation-play-state: paused; }
+        
+        .highlight-img-wrapper {
+            width: 280px; height: 400px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; overflow: hidden; flex-shrink: 0; transition: transform 0.4s ease;
+        }
+        .highlight-img-wrapper:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: var(--shadow-gold);}
+        .highlight-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        @keyframes scrollSlider { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        @media (max-width: 992px) {
+            .highlights-container { flex-direction: column; text-align: center; }
+            .highlights-text { flex: 0 0 100%; margin-bottom: 2rem; }
+            .highlights-title { font-size: 2.8rem; }
+            .highlight-img-wrapper { width: 220px; height: 320px; }
+        }
+
+        /* Stats */
+        .stats-section { background: var(--bg-main); padding: 5rem 0; border-bottom: 1px solid var(--glass-border); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+        .stat-item i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem; }
+        .stat-number { font-size: 3rem; font-family: var(--font-heading); font-weight: 700; margin-bottom: 0.5rem; color: var(--primary);}
+        [data-theme="dark"] .stat-number { color: #fff; }
+        .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 600;}
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { text-align: center; padding: 3rem 2rem; border-top: 3px solid transparent;}
+        .service-card:hover { border-top: 3px solid var(--secondary); }
+        .service-icon {
+            width: 70px; height: 70px; margin: 0 auto 1.5rem; background: rgba(212, 175, 55, 0.1); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-size: 2rem; color: var(--secondary); transition: var(--trans-smooth);
+        }
+        .service-card:hover .service-icon { background: var(--secondary); color: #111; transform: scale(1.1); }
+        .service-card h3 { margin-bottom: 1rem; color: var(--primary); }
+        [data-theme="dark"] .service-card h3 { color: var(--secondary); }
+        .service-card p { color: var(--text-muted); margin-bottom: 1.5rem; }
+        .service-price { font-weight: 600; color: var(--secondary); font-size: 1.1rem; }
+
+        /* Gallery Section */
+        .gallery-filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+        .filter-btn {
+            background: transparent; border: 1px solid var(--border-color); padding: 0.6rem 1.8rem; border-radius: 30px; color: var(--text-main); cursor: pointer;
+            transition: var(--trans-smooth); font-family: var(--font-body); text-transform: uppercase; font-size: 0.85rem; font-weight: 500;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--secondary); color: #111; border-color: var(--secondary); font-weight: 600;}
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;}
+        .gallery-item { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 4/5; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(90, 24, 39, 0.85); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: var(--trans-smooth); color: white;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay i { font-size: 2rem; color: var(--secondary); margin-bottom: 1rem; }
+        
+        .load-more-container { text-align: center; }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95);
+            display: none; justify-content: center; align-items: center; z-index: 10000; opacity: 0; transition: opacity 0.3s;
+        }
+        #lightbox.show { display: flex; opacity: 1; }
+        #lightbox img { max-width: 90%; max-height: 90vh; border: 2px solid var(--secondary); border-radius: 4px; box-shadow: var(--shadow-gold);}
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; }
+
+        /* Pricing Section */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .pricing-card { padding: 0; display: flex; flex-direction: column; border: none; }
+        .pricing-img { height: 250px; width: 100%; object-fit: cover; border-bottom: 3px solid var(--secondary); }
+        .pricing-content { padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; background: var(--bg-card);}
+        .pricing-price { font-family: var(--font-heading); font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; font-weight: 700;}
+        [data-theme="dark"] .pricing-price { color: var(--secondary); }
+        .pricing-price span { font-size: 1rem; color: var(--text-muted); font-family: var(--font-body); font-weight: 400;}
+        .pricing-details { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
+        .pricing-details li { margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px; color: var(--text-muted); }
+        .pricing-details i { color: var(--secondary); margin-top: 5px; }
+
+        /* Booking Section */
+        .booking-section { background: var(--primary-dark); color: #fff; padding-bottom: 8rem;}
+        .booking-section .section-title { color: var(--secondary); }
+        .booking-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;}
+        
+        .booking-left-text { padding-right: 2rem; }
+        .booking-left-text h3 { font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;}
+        .booking-left-text p { color: #ccc; margin-bottom: 2rem; font-size: 1.1rem; }
+        .booking-features li { margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: center; gap: 15px;}
+        .booking-features i { font-size: 1.5rem; }
+
+        @media (max-width: 992px) { .booking-container { grid-template-columns: 1fr; } .booking-left-text { padding-right: 0;} }
+        
+        .booking-form-card {
+            background: var(--bg-card); padding: 3rem; border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: var(--text-main);
+        }
+        
+        .form-group { margin-bottom: 1.5rem; text-align: left;}
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; color: var(--text-muted);}
+        .form-control {
+            width: 100%; padding: 1rem 1.2rem; background: var(--bg-main); border: 1px solid rgba(212,175,55,0.4);
+            color: var(--text-main); font-family: var(--font-body); border-radius: 4px; transition: var(--trans-smooth); 
+        }
+        .form-control:focus { outline: none; border-color: var(--secondary); box-shadow: 0 0 8px rgba(212,175,55,0.3); background: transparent;}
+        textarea.form-control { resize: vertical; min-height: 120px; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 2rem; }
+        .checkbox-group input { margin-top: 4px; cursor: pointer;}
+        
+        /* Updated WhatsApp Button (As per user image) */
+        .btn-whatsapp-submit {
+            width: 100%; padding: 1.2rem; background: var(--secondary); color: #111;
+            font-weight: 700; font-size: 1rem; border: none; border-radius: 4px; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; gap: 12px;
+            transition: var(--trans-smooth); text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .btn-whatsapp-submit i { font-size: 1.4rem; }
+        .btn-whatsapp-submit:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5); background: #e6c148;}
+
+        /* Contact Section Fixes (Matched to User Image exactly) */
+        .contact-info { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; width: 100%; 
+        }
+        .contact-item { 
+            background: #1A1A1A; /* Dark card to match image */
+            border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px; padding: 2.5rem 2rem;
+            display: flex; align-items: center; gap: 1.5rem; justify-content: flex-start; text-align: left;
+            transition: transform 0.3s;
+        }
+        .contact-item:hover { transform: translateY(-5px); border-color: var(--secondary);}
+        .contact-icon { 
+            width: 55px; height: 55px; background: transparent; border: 1px solid var(--secondary); border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; font-size: 1.3rem; color: var(--secondary); 
+            flex-shrink: 0; /* Prevents squeezing */
+        }
+        .contact-text h4 { color: #FFFFFF; font-family: var(--font-heading); margin-bottom: 0.3rem; font-size: 1.2rem; }
+        .contact-text p { color: #CCCCCC; font-size: 0.95rem; line-height: 1.5; margin:0; }
+        
+        footer { background: var(--primary); color: #fff; padding: 5rem 0 2rem; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 4rem; }
+        .footer-col h4 { color: var(--secondary); margin-bottom: 1.5rem; font-family: var(--font-heading); font-size: 1.5rem;}
+        .footer-links li { margin-bottom: 1rem; }
+        .footer-links a { color: #ccc; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--secondary); padding-left: 5px;}
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { width: 45px; height: 45px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fff; transition: var(--trans-smooth); }
+        .social-links a:hover { background: var(--secondary); color: var(--primary); border-color: var(--secondary); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #888; font-size: 0.9rem; }
+        
+        .fab-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        .fab { width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fff; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: var(--trans-smooth); text-decoration: none;}
+        .fab-whatsapp { background: #25D366; }
+        .fab-top { background: var(--secondary); color: var(--primary); opacity: 0; visibility: hidden; font-size: 1.2rem;}
+        .fab-top.show { opacity: 1; visibility: visible; }
+        .fab:hover { transform: scale(1.1); }
+
+        /* Custom Toast Notification (Replaces window.alert) */
+        #toast-container { position: fixed; top: 20px; right: 20px; z-index: 10001; display: flex; flex-direction: column; gap: 10px;}
+        .toast { background: var(--secondary); color: var(--primary); padding: 15px 25px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-weight: 600; display: flex; align-items: center; gap: 10px; transform: translateX(120%); transition: transform 0.3s ease; }
+        .toast.show { transform: translateX(0); }
+
+        /* Admin Layouts */
+        #login-container, #admin-dashboard { display: none; min-height: 100vh; background: var(--bg-main); }
+        .login-box { max-width: 450px; margin: 10vh auto; padding: 3rem; text-align: center; border-top: 4px solid var(--secondary);}
+        .login-box .logo { margin-bottom: 1rem; display: block; font-size: 2.5rem;}
+        
+        .admin-layout { display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 280px; background: var(--primary); color: white; padding: 2rem 0; display: flex; flex-direction: column; border-right: 1px solid var(--glass-border);}
+        .sidebar-logo { text-align: center; color: var(--secondary); font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 3rem; }
+        .sidebar-nav { flex-grow: 1; }
+        .sidebar-nav a { display: block; padding: 1.2rem 2rem; color: #ccc; border-left: 4px solid transparent; transition: 0.3s; font-weight: 500;}
+        .sidebar-nav a i { width: 25px; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background: rgba(212,175,55,0.1); color: var(--secondary); border-left-color: var(--secondary); }
+        .main-content { flex-grow: 1; padding: 3rem; overflow-y: auto; background: var(--bg-main); }
+        
+        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; }
+        .admin-header h2 { color: var(--primary); margin:0;}
+        [data-theme="dark"] .admin-header h2 { color: var(--secondary);}
+        
+        .admin-card { background: var(--bg-card); padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-soft); margin-bottom: 2.5rem; border: 1px solid var(--glass-border); }
+        .data-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+        .data-item { position: relative; border: 1px solid var(--glass-border); border-radius: 4px; padding: 10px; background: var(--bg-main); text-align: center; }
+        .data-item img { height: 180px; width: 100%; object-fit: cover; margin-bottom: 15px; border-radius: 4px; }
+        .data-item .actions { margin-top: 10px; display: flex; justify-content: center; gap: 10px; }
+        .btn-sm { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        .btn-danger { background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; transition: 0.3s;}
+        .btn-danger:hover { background: #c82333; }
+        #img-preview { width: 100%; max-height: 250px; object-fit: cover; display: none; margin-top: 15px; border: 2px dashed var(--secondary); border-radius: 4px;}
+
+        body.view-main #main-website { display: block; }
+        body.view-login #login-container { display: block; }
+        body.view-admin #admin-dashboard { display: block; }
+        body.view-login #main-website, body.view-admin #main-website { display: none; }
+
+    </style>
+</head>
+<body class="view-main">
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Modern Toast Notifications (Replaces alert) -->
+    <div id="toast-container"></div>
+
+    <!-- Page Loader -->
+    <div id="loader">
+        <div class="loader-logo">Lakshita Mehandii studio</div>
+    </div>
+
+    <!-- Floating Particles Container -->
+    <div id="particles"></div>
+
+    <div id="main-website">
+        
+        <header id="header">
+            <div class="container nav-container">
+                <a href="#" class="logo">Lakshita Mehandii </a>
+                
+                <nav class="nav-links" id="nav-links">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#booking">Book Now</a>
+                    <a href="#login" onclick="app.navigateTo('login'); return false;" style="color: var(--secondary);">Admin</a>
+                </nav>
+
+                <div class="nav-actions">
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Collage Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-collage">
+                <!-- Fallback provided via onerror if local images not found yet -->
+                <img src="assets/images/1.jpg" onerror="this.src='https://images.unsplash.com/photo-1596489816668-f9754f76cc78?auto=format&fit=crop&w=600'" alt="Mehendi 1">
+                <img src="assets/images/2.jpg" onerror="this.src='https://images.unsplash.com/photo-1596541604085-d67b7e716614?auto=format&fit=crop&w=600'" alt="Mehendi 2">
+                <img src="assets/images/3.jpg" onerror="this.src='https://images.unsplash.com/photo-1601322046896-189cc3e839e9?auto=format&fit=crop&w=600'" alt="Mehendi 3">
+                <img src="assets/images/4.jpg" onerror="this.src='https://images.unsplash.com/photo-1610992383287-c1d09e7de7b9?auto=format&fit=crop&w=600'" alt="Mehendi 4">
+                <img src="assets/images/5.jpg" onerror="this.src='https://images.unsplash.com/photo-1621008018314-8840ff5a6003?auto=format&fit=crop&w=600'" alt="Mehendi 5">
+                <img src="assets/images/6.jpg" onerror="this.src='https://images.unsplash.com/photo-1633519895047-9dc476901844?auto=format&fit=crop&w=600'" alt="Mehendi 6">
+            </div>
+            <div class="hero-overlay"></div>
+            
+            <div class="container hero-content reveal">
+                <span class="hero-subtitle">Welcome to Royal Luxury</span>
+                <h1 class="hero-title">Premium Mehendi for Every Celebration</h1>
+                <div class="hero-tags">
+                    <span>Wedding</span> &bull; <span>Bridal</span> &bull; <span>Engagement</span> &bull; <span>Festivals</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn btn-gold">Book Now</a>
+                    <a href="#gallery" class="btn btn-outline" style="color: white; border-color: white;">View Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Royal Highlights Slider -->
+        <section id="highlights" class="highlights-section">
+            <div class="highlights-container">
+                <div class="highlights-text reveal">
+                    <h2 class="highlights-title">ROYAL<br><span>MEHENDI</span><br>ARTISTRY</h2>
+                    <p>Experience beautiful mehendi art that blends traditional heritage with modern elegance. Our designs are intricate, luxurious, and crafted perfectly for your special day using 100% organic henna.</p>
+                </div>
+                <div class="highlights-slider-container reveal">
+                    <div class="highlights-track" id="highlights-track">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item reveal">
+                    <i class="fas fa-heart"></i>
+                    <div class="stat-number counter" data-target="1500">0</div>
+                    <div class="stat-label">Happy Brides</div>
+                </div>
+                <div class="stat-item reveal">
+                    <i class="fas fa-palette"></i>
+                    <div class="stat-number counter" data-target="3200">0</div>
+                    <div class="stat-label">Events Completed</div>
+                </div>
+                <div class="stat-item reveal">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="stat-number counter" data-target="15">0</div>
+                    <div class="stat-label">Cities Covered</div>
+                </div>
+                <div class="stat-item reveal">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="container">
+            <h2 class="section-title reveal">Our Services</h2>
+            <div class="services-grid">
+                <div class="glass-card service-card reveal">
+                    <div class="service-icon"><i class="fas fa-ring"></i></div>
+                    <h3>Bridal Mehendi</h3>
+                    <p>Intricate, full-hand and leg designs combining traditional motifs with modern elegance.</p>
+                    <div class="service-price">Starts at ₹5,000</div>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Arabic Mehendi</h3>
+                    <p>Bold, flowing floral patterns perfect for bridesmaids and engagement parties.</p>
+                    <div class="service-price">Starts at ₹1,500</div>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <div class="service-icon"><i class="fas fa-crown"></i></div>
+                    <h3>Royal Mehendi</h3>
+                    <p>Exquisite portrait and figurework inspired by Mughal and Rajputana heritage.</p>
+                    <div class="service-price">Starts at ₹8,000</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="container">
+            <h2 class="section-title reveal">Design Gallery</h2>
+            
+            <div class="gallery-filters reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="bridal">Bridal</button>
+                <button class="filter-btn" data-filter="arabic">Arabic</button>
+                <button class="filter-btn" data-filter="royal">Royal</button>
+                <button class="filter-btn" data-filter="minimal">Minimal</button>
+            </div>
+
+            <div class="gallery-grid reveal" id="public-gallery-grid">
+                <!-- Injected via JS -->
+            </div>
+            
+            <div class="load-more-container reveal">
+                <button id="load-more-btn" class="btn btn-outline" style="display: none; width: 250px; font-weight: bold; border-width: 2px;">View More Designs</button>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img src="" alt="Zoomed Image" id="lightbox-img">
+        </div>
+
+        <section id="pricing" class="container" style="background: var(--glass-bg); padding: 5rem 2rem; border-radius: 12px; margin-bottom: 5rem;">
+            <h2 class="section-title reveal">Curated Packages</h2>
+            <div class="pricing-grid reveal" id="public-pricing-grid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <section id="booking" class="booking-section">
+            <div class="container">
+                <h2 class="section-title reveal">Book Your Appointment</h2>
+                <div class="booking-container reveal">
+                    
+                    <!-- Updated Professional Text -->
+                    <div class="booking-left-text">
+                        <h3 class="text-gold">Your Bridal Journey Starts Here</h3>
+                        <p>We believe every bride deserves a unique masterpiece. From traditional portraits to modern contemporary mandalas, we craft designs that tell your unique love story perfectly matching your style and heritage.</p>
+                        
+                        <ul class="booking-features">
+                            <li><i class="fas fa-leaf text-gold"></i> 100% Organic, Chemical-Free Henna</li>
+                            <li><i class="fas fa-droplet text-gold"></i> Guaranteed Dark & Rich Stain</li>
+                            <li><i class="fas fa-pen-fancy text-gold"></i> Highly Customised Intricate Designs</li>
+                            <li><i class="fas fa-headset text-gold"></i> Direct 1-on-1 Consultation</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Booking Form -->
+                    <div class="booking-form-card">
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" id="b_name" class="form-control" required placeholder="e.g. Aditi Sharma">
+                            </div>
+                            <div class="form-group" style="display: flex; gap: 1rem;">
+                                <div style="flex: 1;">
+                                    <label>WhatsApp Number *</label>
+                                    <input type="tel" id="b_phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
+                                </div>
+                                <div style="flex: 1;">
+                                    <label>City / Location *</label>
+                                    <input type="text" id="b_city" class="form-control" required placeholder="e.g. Mumbai">
+                                </div>
+                            </div>
+                            <div class="form-group" style="display: flex; gap: 1rem;">
+                                <div style="flex: 1;">
+                                    <label>Event Date *</label>
+                                    <input type="date" id="b_date" class="form-control" required>
+                                </div>
+                                <div style="flex: 1;">
+                                    <label>Event Type</label>
+                                    <select id="b_event" class="form-control">
+                                        <option>Wedding</option>
+                                        <option>Engagement</option>
+                                        <option>Festival</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Special Requests or Message</label>
+                                <textarea id="b_msg" class="form-control" placeholder="Any specific design inspiration or budget details?"></textarea>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="b_agree" required>
+                                <label for="b_agree" style="font-size: 0.9rem; font-weight: normal; margin:0; color: var(--text-muted)">I agree to proceed to WhatsApp to finalize this booking inquiry.</label>
+                            </div>
+                            
+                            <!-- WhatsApp Button formatted as requested -->
+                            <button type="submit" class="btn-whatsapp-submit">
+                                <i class="fab fa-whatsapp"></i> Send Booking via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container" style="margin-top: -6rem; z-index: 10; position: relative;">
+            <div class="contact-info reveal">
+                <!-- Contact Cards aligned perfectly as per your 3rd image -->
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="contact-text">
+                        <h4>Call Us</h4>
+                        <p>+91 99825 93535</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="contact-text">
+                        <h4>WhatsApp</h4>
+                        <p>+91 99825 93535</p>
+                    </div>
+                </div>
+                <!-- <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>hello@lakshitamehendi.com</p>
+                    </div>
+                </div> -->
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-text">
+                        <h4>Location</h4>
+                        <p>Rajsamand , Rajshthan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Lakshita Mehandii studio</h4>
+                        <p style="color: #ccc; margin-bottom: 1.5rem; line-height: 1.6;">Crafting luxurious, intricate, and organic henna designs for your most cherished moments. Serving smiles across India.</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/lakshita_mehandiii?igsh=b2hvMW92Z2h1OW84"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#pricing">Pricing Packages</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul class="footer-links">
+                            <li><i class="fas fa-phone text-gold" style="width: 20px;"></i> +91 99825 93535</li>
+                            <!-- <li><i class="fas fa-envelope text-gold" style="width: 20px;"></i> hello@lakshitamehendi.com</li> -->
+                            <li><i class="fas fa-map-marker-alt text-gold" style="width: 20px;"></i> Rajsamand, India</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Lakshita Mehendi Studio. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Floating Action Buttons -->
+        <div class="fab-container">
+            <a href="#" id="fab-top" class="fab fab-top"><i class="fas fa-arrow-up"></i></a>
+            <a href="https://wa.me/919982593535" target="_blank" class="fab fab-whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="login-container">
+        <div class="login-box glass-card">
+            <h2 class="logo text-gold">Lakshita Admin</h2>
+            <p style="margin-bottom: 2.5rem; color: var(--text-muted);">Secure Control Panel</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="admin_user" class="form-control" required placeholder="admin">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="admin_pass" class="form-control" required placeholder="admin123">
+                </div>
+                <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 1rem;">Login to Dashboard</button>
+                <div style="margin-top: 1.5rem; font-size: 0.95rem;">
+                    <a href="#" onclick="app.navigateTo('main'); return false;" style="color: var(--secondary);"><i class="fas fa-arrow-left"></i> Return to Website</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="admin-dashboard">
+        <div class="admin-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-logo">Lakshita Admin</div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="active" data-tab="dashboard-tab"><i class="fas fa-home"></i> Dashboard</a>
+                    <a href="#" data-tab="gallery-tab"><i class="fas fa-images"></i> Manage Gallery</a>
+                    <a href="#" data-tab="pricing-tab"><i class="fas fa-tags"></i> Manage Pricing</a>
+                    <a href="#" onclick="app.logout(); return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                
+                <div id="dashboard-tab" class="admin-tab">
+                    <div class="admin-header">
+                        <h2>Overview</h2>
+                        <button class="btn btn-outline btn-sm" onclick="app.navigateTo('main')">View Live Site</button>
+                    </div>
+                    <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 2rem; gap:2rem;">
+                        <div class="admin-card text-center" style="margin-bottom:0;">
+                            <h3 class="text-gold">Gallery Images</h3>
+                            <h1 id="admin-stat-gallery" style="font-size: 3rem; margin-top: 1rem;">0</h1>
+                        </div>
+                        <div class="admin-card text-center" style="margin-bottom:0;">
+                            <h3 class="text-gold">Pricing Packages</h3>
+                            <h1 id="admin-stat-pricing" style="font-size: 3rem; margin-top: 1rem;">0</h1>
+                        </div>
+                        <div class="admin-card text-center" style="margin-bottom:0;">
+                            <h3 class="text-gold">System Status</h3>
+                            <h1 style="font-size: 2rem; margin-top: 1.5rem; color: #28a745;">Active</h1>
+                            <small>LocalStorage Running</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="gallery-tab" class="admin-tab" style="display: none;">
+                    <div class="admin-header">
+                        <h2>Manage Gallery</h2>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h3>Add New Design</h3>
+                        <form id="addGalleryForm" style="margin-top: 1.5rem;">
+                            <div class="form-group">
+                                <label>Image File</label>
+                                <input type="file" id="gal_file" class="form-control" accept="image/*" required>
+                                <img id="img-preview" alt="Preview">
+                            </div>
+                            <div class="form-group" style="display: flex; gap: 1rem;">
+                                <div style="flex: 1;">
+                                    <label>Category</label>
+                                    <select id="gal_category" class="form-control" required>
+                                        <option value="bridal">Bridal</option>
+                                        <option value="arabic">Arabic</option>
+                                        <option value="royal">Royal</option>
+                                        <option value="minimal">Minimal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-gold">Upload Image</button>
+                        </form>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Current Gallery</h3>
+                        <div class="data-grid" id="admin-gallery-grid" style="margin-top: 1.5rem;">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pricing-tab" class="admin-tab" style="display: none;">
+                    <div class="admin-header">
+                        <h2>Manage Pricing</h2>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Add New Package</h3>
+                        <form id="addPricingForm" style="margin-top: 1.5rem;">
+                            <div class="form-group" style="display: flex; gap: 1rem;">
+                                <div style="flex: 1;">
+                                    <label>Package Name</label>
+                                    <input type="text" id="pri_name" class="form-control" required placeholder="e.g. Premium Bridal">
+                                </div>
+                                <div style="flex: 1;">
+                                    <label>Price (₹)</label>
+                                    <input type="number" id="pri_price" class="form-control" required placeholder="15000">
+                                </div>
+                            </div>
+                            <div class="form-group" style="display: flex; gap: 1rem;">
+                                <div style="flex: 1;">
+                                    <label>Duration</label>
+                                    <input type="text" id="pri_duration" class="form-control" required placeholder="e.g. 4-6 Hours">
+                                </div>
+                                <div style="flex: 1;">
+                                    <label>Cover Image (Optional)</label>
+                                    <input type="file" id="pri_file" class="form-control" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Features (Comma separated)</label>
+                                <input type="text" id="pri_features" class="form-control" required placeholder="Both hands, Full legs, Organic Henna">
+                            </div>
+                            <button type="submit" class="btn btn-gold">Save Package</button>
+                        </form>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Current Packages</h3>
+                        <div class="data-grid" id="admin-pricing-grid" style="margin-top: 1.5rem;">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Elegant Mehendi Studio - Core Logic
+         */
+
+        // Modern Notification System (No more annoying alerts)
+        const Toast = {
+            show: (msg, isError = false) => {
+                const container = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                if(isError) toast.style.background = '#dc3545';
+                toast.innerHTML = `<i class="${isError ? 'fas fa-exclamation-circle' : 'fas fa-check-circle'}"></i> ${msg}`;
+                container.appendChild(toast);
+                
+                setTimeout(() => toast.classList.add('show'), 100);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+        };
+
+        // Storage keys updated to bypass old faulty cache and force 1 to 40 images
+        const STORAGE_KEY_GALLERY = 'elegant_gallery_v2';
+        const STORAGE_KEY_PRICING = 'elegant_pricing_v2';
+
+        // Data Generator for VS Code assets/images (1.jpg to 40.jpg)
+        const generateDefaultGallery = () => {
+            const gallery = [];
+            const categories = ['bridal', 'arabic', 'royal', 'minimal'];
+            for(let i = 1; i <= 40; i++) {
+                gallery.push({
+                    id: i,
+                    image: `assets/images/${i}.jpg`, // Fixed to match your folder structure exactly
+                    category: categories[i % categories.length]
+                });
+            }
+            return gallery;
+        };
+
+        const generateDefaultPricing = () => {
+            return [
+                { id: 1, name: 'Signature Bridal', price: 12000, duration: '4-6 Hours', features: ['Full Hands & Feet', 'Custom Portrait', 'Organic Henna Guarantee', 'Pre-wedding Consultation'], image: 'assets/images/8.jpg' },
+                { id: 2, name: 'Minimalist Bride', price: 6500, duration: '2-3 Hours', features: ['Half Hands & Feet', 'Arabic/Mandala Fusion', 'Organic Henna Guarantee'], image: 'assets/images/15.jpg' },
+                { id: 3, name: 'Family Group', price: 1500, duration: 'Per Guest', features: ['Arabic Strips', 'Fast Application', 'Minimum 10 Guests required'], image: 'assets/images/1.jpg' }
+            ];
+        };
+
+        const CONFIG = {
+            whatsappNumber: "919982593535", 
+            adminUser: "admin",
+            adminPass: "admin123"
+        };
+
+        const DataStore = {
+            init: async () => {
+                if (!localStorage.getItem(STORAGE_KEY_GALLERY)) localStorage.setItem(STORAGE_KEY_GALLERY, JSON.stringify(generateDefaultGallery()));
+                if (!localStorage.getItem(STORAGE_KEY_PRICING)) localStorage.setItem(STORAGE_KEY_PRICING, JSON.stringify(generateDefaultPricing()));
+            },
+            getGallery: async () => JSON.parse(localStorage.getItem(STORAGE_KEY_GALLERY)) || [],
+            getPricing: async () => JSON.parse(localStorage.getItem(STORAGE_KEY_PRICING)) || [],
+            addGallery: async (item) => {
+                const data = await DataStore.getGallery();
+                item.id = Date.now();
+                data.unshift(item); // Add to top
+                localStorage.setItem(STORAGE_KEY_GALLERY, JSON.stringify(data));
+            },
+            addPricing: async (item) => {
+                const data = await DataStore.getPricing();
+                item.id = Date.now();
+                data.push(item);
+                localStorage.setItem(STORAGE_KEY_PRICING, JSON.stringify(data));
+            },
+            deleteGallery: async (id) => {
+                let data = await DataStore.getGallery();
+                data = data.filter(i => i.id !== id);
+                localStorage.setItem(STORAGE_KEY_GALLERY, JSON.stringify(data));
+            },
+            deletePricing: async (id) => {
+                let data = await DataStore.getPricing();
+                data = data.filter(i => i.id !== id);
+                localStorage.setItem(STORAGE_KEY_PRICING, JSON.stringify(data));
+            }
+        };
+
+        const UI = {
+            galleryState: { limit: 10, filter: 'all', data: [] },
+            
+            init: () => {
+                UI.handleLoader();
+                UI.setupScrollEffects();
+                UI.setupThemeToggle();
+                UI.setupMobileMenu();
+                UI.setupAnimations();
+                UI.setupLightbox();
+                UI.createParticles();
+                UI.setupHighlightsSlider(); 
+            },
+
+            handleLoader: () => {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        const loader = document.getElementById('loader');
+                        loader.style.opacity = '0';
+                        setTimeout(() => loader.style.display = 'none', 800);
+                        UI.revealOnScroll();
+                    }, 500); 
+                });
+            },
+
+            setupScrollEffects: () => {
+                const header = document.getElementById('header');
+                const progressBar = document.getElementById('scroll-progress');
+                const fabTop = document.getElementById('fab-top');
+
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) header.classList.add('scrolled');
+                    else header.classList.remove('scrolled');
+
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    progressBar.style.width = scrolled + "%";
+
+                    if (window.scrollY > 500) fabTop.classList.add('show');
+                    else fabTop.classList.remove('show');
+                });
+            },
+
+            setupThemeToggle: () => {
+                const toggle = document.getElementById('theme-toggle');
+                const savedTheme = localStorage.getItem('theme');
+                if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+                else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+
+                toggle.addEventListener('click', () => {
+                    let current = document.documentElement.getAttribute('data-theme');
+                    let next = current === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    toggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                });
+
+                if(document.documentElement.getAttribute('data-theme') === 'dark') toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            },
+
+            setupMobileMenu: () => {
+                const btn = document.getElementById('mobile-menu-btn');
+                const links = document.getElementById('nav-links');
+                btn.addEventListener('click', () => { links.classList.toggle('show'); });
+                links.querySelectorAll('a').forEach(a => {
+                    a.addEventListener('click', () => links.classList.remove('show'));
+                });
+            },
+
+            revealOnScroll: () => {
+                const reveals = document.querySelectorAll('.reveal');
+                const windowHeight = window.innerHeight;
+                reveals.forEach(reveal => {
+                    if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                        reveal.classList.add('active');
+                    }
+                });
+            },
+
+            setupAnimations: () => {
+                window.addEventListener('scroll', UI.revealOnScroll);
+                const counters = document.querySelectorAll('.counter');
+                let started = false;
+                
+                const startCounters = () => {
+                    if (started) return;
+                    const statsSection = document.querySelector('.stats-section');
+                    if(!statsSection) return;
+                    if (statsSection.getBoundingClientRect().top < window.innerHeight) {
+                        started = true;
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const increment = target / (2000 / 16);
+                            let current = 0;
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current);
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target + "+";
+                                }
+                            };
+                            updateCounter();
+                        });
+                    }
+                };
+                window.addEventListener('scroll', startCounters);
+            },
+
+            setupLightbox: () => {
+                const lightbox = document.getElementById('lightbox');
+                const lbImg = document.getElementById('lightbox-img');
+                const close = document.querySelector('.lightbox-close');
+
+                document.getElementById('public-gallery-grid').addEventListener('click', (e) => {
+                    const item = e.target.closest('.gallery-item');
+                    if (item) {
+                        lbImg.src = item.querySelector('img').src;
+                        lightbox.classList.add('show');
+                    }
+                });
+
+                close.addEventListener('click', () => lightbox.classList.remove('show'));
+                lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('show'); });
+            },
+
+            createParticles: () => {
+                const container = document.getElementById('particles');
+                const colors = ['var(--secondary)', 'var(--secondary-light)'];
+                for(let i=0; i<30; i++) {
+                    let particle = document.createElement('div');
+                    particle.classList.add('sparkle');
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.animationDelay = Math.random() * 5 + 's';
+                    particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    container.appendChild(particle);
+                }
+            },
+
+            setupHighlightsSlider: () => {
+                const track = document.getElementById('highlights-track');
+                if (!track) return;
+                
+                let sliderHTML = '';
+                for(let i = 1; i <= 10; i++) {
+                    sliderHTML += `
+                        <div class="highlight-img-wrapper">
+                            <img src="assets/images/${i}.jpg" alt="Highlight" onerror="this.src='https://images.unsplash.com/photo-1596489816668-f9754f76cc78?w=400'">
+                        </div>`;
+                }
+                track.innerHTML = sliderHTML + sliderHTML;
+            },
+
+            getBase64: (file) => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = error => reject(error);
+                });
+            }
+        };
+
+        const app = {
+            async init() {
+                await DataStore.init();
+                UI.init();
+                
+                UI.galleryState.data = await DataStore.getGallery();
+                this.renderPublicGallery();
+                this.setupGalleryFilters();
+                this.setupLoadMore();
+                
+                this.renderPublicPricing();
+                this.setupBookingForm();
+                this.setupAdminLogic();
+                
+                window.addEventListener('hashchange', this.handleRouting.bind(this));
+                this.handleRouting();
+            },
+
+            handleRouting() {
+                const hash = window.location.hash;
+                if (hash === '#login') {
+                    this.navigateTo('login');
+                } else if (hash === '#admin') {
+                    if(sessionStorage.getItem('ems_auth')) this.navigateTo('admin');
+                    else this.navigateTo('login');
+                } else {
+                    // Double-Click Issue Fix: Only switch to 'main' if not already on it
+                    // This prevents the page from forcibly scrolling to the top on valid #anchor clicks
+                    if (!document.body.classList.contains('view-main')) {
+                        this.navigateTo('main');
+                    }
+                }
+            },
+
+            navigateTo(view) {
+                document.body.className = `view-${view}`;
+                if(view === 'admin') this.renderAdminDashboard();
+                if(view !== 'main') window.scrollTo(0,0); 
+            },
+
+            // Pagination Logic for Gallery (Loads 10 at a time)
+            renderPublicGallery() {
+                const grid = document.getElementById('public-gallery-grid');
+                const loadBtn = document.getElementById('load-more-btn');
+                
+                const { data, filter, limit } = UI.galleryState;
+                const filteredData = data.filter(item => filter === 'all' || item.category === filter);
+                const visibleData = filteredData.slice(0, limit);
+                
+                grid.innerHTML = visibleData.map(item => `
+                    <div class="glass-card gallery-item" style="display: block; opacity: 1;">
+                        <img src="${item.image}" alt="Mehendi Design" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596541604085-d67b7e716614?w=500'">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <p style="text-transform: capitalize; font-family: var(--font-heading); font-size:1.2rem;">${item.category}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Show or Hide "View More" button
+                if(filteredData.length > limit) {
+                    loadBtn.style.display = 'inline-flex';
+                } else {
+                    loadBtn.style.display = 'none';
+                }
+            },
+
+            setupLoadMore() {
+                document.getElementById('load-more-btn').addEventListener('click', () => {
+                    UI.galleryState.limit += 10;
+                    this.renderPublicGallery();
+                });
+            },
+
+            setupGalleryFilters() {
+                const filters = document.querySelectorAll('.filter-btn');
+                filters.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filters.forEach(f => f.classList.remove('active'));
+                        btn.classList.add('active');
+                        
+                        UI.galleryState.filter = btn.getAttribute('data-filter');
+                        UI.galleryState.limit = 10; // Reset load limit on filter change
+                        this.renderPublicGallery();
+                    });
+                });
+            },
+
+            async renderPublicPricing() {
+                const grid = document.getElementById('public-pricing-grid');
+                const data = await DataStore.getPricing();
+                
+                grid.innerHTML = data.map(item => `
+                    <div class="glass-card pricing-card">
+                        <img src="${item.image}" alt="${item.name}" class="pricing-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596489816668-f9754f76cc78?w=500'">
+                        <div class="pricing-content">
+                            <h3>${item.name}</h3>
+                            <div class="pricing-price">₹${item.price} <span>/ ${item.duration}</span></div>
+                            <ul class="pricing-details">
+                                ${item.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                            </ul>
+                            <a href="#booking" class="btn btn-outline" style="text-align: center; width: 100%; border-width: 2px;" 
+                               onclick="document.getElementById('b_package').value='${item.name}';">Inquire Now</a>
+                        </div>
+                    </div>
+                `).join('');
+            },
+
+            setupBookingForm() {
+                document.getElementById('bookingForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const data = {
+                        name: document.getElementById('b_name').value,
+                        phone: document.getElementById('b_phone').value,
+                        city: document.getElementById('b_city').value,
+                        date: document.getElementById('b_date').value,
+                        event: document.getElementById('b_event').value,
+                        msg: document.getElementById('b_msg').value,
+                    };
+
+                    let text = `*Hello Lakshita Mehendi Studio,*\nI want to book a Mehendi artist.\n\n`;
+                    text += `*Name:* ${data.name}\n*Phone:* ${data.phone}\n*City:* ${data.city}\n*Event Date:* ${data.date}\n*Event Type:* ${data.event}\n`;
+                    if(data.msg) text += `*Message:* ${data.msg}\n`;
+
+                    window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
+                });
+            },
+
+            setupAdminLogic() {
+                document.getElementById('loginForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (document.getElementById('admin_user').value === CONFIG.adminUser && document.getElementById('admin_pass').value === CONFIG.adminPass) {
+                        sessionStorage.setItem('ems_auth', 'true');
+                        document.getElementById('loginForm').reset();
+                        window.location.hash = 'admin';
+                    } else {
+                        Toast.show("Invalid credentials", true);
+                    }
+                });
+
+                const tabs = document.querySelectorAll('.sidebar-nav a[data-tab]');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        document.querySelectorAll('.admin-tab').forEach(c => c.style.display = 'none');
+                        document.getElementById(tab.getAttribute('data-tab')).style.display = 'block';
+                    });
+                });
+
+                document.getElementById('gal_file').addEventListener('change', function() {
+                    if (this.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = e => {
+                            document.getElementById('img-preview').src = e.target.result;
+                            document.getElementById('img-preview').style.display = 'block';
+                        }
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                document.getElementById('addGalleryForm').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const file = document.getElementById('gal_file').files[0];
+                    if (file) {
+                        try {
+                            const base64 = await UI.getBase64(file);
+                            await DataStore.addGallery({ image: base64, category: document.getElementById('gal_category').value });
+                            Toast.show('Design Successfully Added!');
+                            document.getElementById('addGalleryForm').reset();
+                            document.getElementById('img-preview').style.display = 'none';
+                            
+                            UI.galleryState.data = await DataStore.getGallery(); 
+                            app.renderAdminDashboard(); 
+                            app.renderPublicGallery(); 
+                        } catch(err) { Toast.show("Error saving image.", true); }
+                    }
+                });
+
+                document.getElementById('addPricingForm').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    let image = 'assets/images/1.jpg'; 
+                    const file = document.getElementById('pri_file').files[0];
+                    if (file) { try { image = await UI.getBase64(file); } catch(err) {} }
+
+                    await DataStore.addPricing({ 
+                        name: document.getElementById('pri_name').value, 
+                        price: document.getElementById('pri_price').value, 
+                        duration: document.getElementById('pri_duration').value, 
+                        features: document.getElementById('pri_features').value.split(',').map(s=>s.trim()), 
+                        image 
+                    });
+                    Toast.show('Package Successfully Added!');
+                    document.getElementById('addPricingForm').reset();
+                    app.renderAdminDashboard();
+                    app.renderPublicPricing();
+                });
+            },
+
+            logout() {
+                sessionStorage.removeItem('ems_auth');
+                window.location.hash = 'main';
+                Toast.show("Logged out successfully");
+            },
+
+            async renderAdminDashboard() {
+                const gData = await DataStore.getGallery();
+                const pData = await DataStore.getPricing();
+                
+                document.getElementById('admin-stat-gallery').innerText = gData.length;
+                document.getElementById('admin-stat-pricing').innerText = pData.length;
+
+                document.getElementById('admin-gallery-grid').innerHTML = gData.map(item => `
+                    <div class="data-item">
+                        <img src="${item.image}" alt="Design" onerror="this.src='https://images.unsplash.com/photo-1596541604085-d67b7e716614?w=400'">
+                        <p style="text-transform: capitalize; margin-bottom:10px;"><b>${item.category}</b></p>
+                        <div class="actions">
+                            <button class="btn-danger btn-sm" onclick="app.deleteItem('gallery', ${item.id})"><i class="fas fa-trash"></i> Remove</button>
+                        </div>
+                    </div>
+                `).join('');
+
+                document.getElementById('admin-pricing-grid').innerHTML = pData.map(item => `
+                    <div class="data-item">
+                        <img src="${item.image}" alt="Package" onerror="this.src='https://images.unsplash.com/photo-1596489816668-f9754f76cc78?w=400'">
+                        <p style="margin-bottom:10px;"><b>${item.name}</b><br>₹${item.price}</p>
+                        <div class="actions">
+                            <button class="btn-danger btn-sm" onclick="app.deleteItem('pricing', ${item.id})"><i class="fas fa-trash"></i> Remove</button>
+                        </div>
+                    </div>
+                `).join('');
+            },
+
+            async deleteItem(type, id) {
+                if(confirm("Are you sure you want to delete this item?")) {
+                    if(type === 'gallery') {
+                        await DataStore.deleteGallery(id);
+                        UI.galleryState.data = await DataStore.getGallery();
+                        this.renderPublicGallery();
+                    } else {
+                        await DataStore.deletePricing(id);
+                        this.renderPublicPricing();
+                    }
+                    this.renderAdminDashboard();
+                    Toast.show("Item deleted successfully");
+                }
+            }
+        };
+
+        // Boot up
+        document.addEventListener('DOMContentLoaded', () => { app.init(); });
+    </script>
+</body>
+</html>

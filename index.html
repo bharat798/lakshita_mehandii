@@ -16,7 +16,7 @@
 
     <style>
         :root {
-            /* Matte Black & Luxury Gold Theme */
+            /* Matte Black & Luxury Gold Theme (Dark Mode Only) */
             --primary: #1F050A; 
             --primary-dark: #070809;
             --secondary: #D4AF37; /* Luxury Gold */
@@ -39,23 +39,6 @@
             
             /* Transitions */
             --trans-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        [data-theme="light"] {
-            /* Optimized Light High Contrast Theme with Yellow-Gold accents */
-            --primary: #5A1827; 
-            --primary-dark: #2A0B12;
-            --secondary: #D4AF37; 
-            --secondary-light: #F7E7CE; 
-            --bg-main: #FDFBF7; 
-            --bg-card: #FFFFFF; 
-            --text-main: #222222;
-            --text-muted: #555555;
-            --border-color: rgba(212, 175, 55, 0.3);
-            --glass-bg: rgba(253, 251, 247, 0.95);
-            --glass-border: rgba(212, 175, 55, 0.2);
-            --shadow-soft: 0 10px 30px rgba(90, 24, 39, 0.08);
-            --shadow-gold: 0 5px 20px rgba(212, 175, 55, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -179,11 +162,10 @@
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         
         .nav-actions { display: flex; align-items: center; gap: 1.2rem; }
-        #theme-toggle, .mobile-menu-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #FFFFFF; }
+        .mobile-menu-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #FFFFFF; }
         .mobile-menu-btn { display: none; font-size: 1.5rem; }
 
         header.scrolled .nav-links a,
-        header.scrolled #theme-toggle,
         header.scrolled .mobile-menu-btn { color: var(--text-main); }
 
         @media (max-width: 992px) {
@@ -196,15 +178,15 @@
             .mobile-menu-btn { display: block; z-index: 1000; }
         }
 
-        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding-top: 80px; background-color: #000; }
+        /* --- HERO SECTION PERFECTED FOR 41.JPG --- */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: flex-start; text-align: left; overflow: hidden; padding-top: 80px; background-color: #0B0B0B; }
         
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            /* Make sure the image is strictly linked here */
-            background-image: url('assets/images/41.jpg');
+            background-image: url('assets/images/41.jpg'); /* Make sure your image name matches exactly */
             background-size: cover; 
-            background-position: center top; /* Keeps subject in focus */
-            z-index: 0; /* Layering fixed to 0 */
+            background-position: right center; /* Keeps the hands in frame perfectly */
+            z-index: 0;
             transform: scale(1.05); 
             animation: slowZoom 25s alternate infinite;
         }
@@ -212,29 +194,37 @@
         
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            /* Less dark gradient so 41.jpg pops out beautifully */
-            background: linear-gradient(to bottom, rgba(11, 11, 11, 0.4) 0%, rgba(11, 11, 11, 0.85) 100%); 
-            z-index: 1; /* Overlay covers image */
+            /* Left side dark for clear text, right side transparent to show beautiful hands */
+            background: linear-gradient(to right, rgba(11, 11, 11, 0.95) 0%, rgba(11, 11, 11, 0.7) 45%, rgba(11, 11, 11, 0.1) 100%); 
+            z-index: 1; 
         }
 
-        .hero-content { position: relative; z-index: 2; color: #FFFFFF; max-width: 900px; padding: 0 2rem; }
+        .hero-content { position: relative; z-index: 2; color: #FFFFFF; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .hero-subtitle { font-size: 1.1rem; letter-spacing: 5px; text-transform: uppercase; color: var(--secondary); margin-bottom: 1.5rem; display: block; font-weight: 500; }
-        .hero-title { font-size: 4.2rem; line-height: 1.1; margin-bottom: 1.5rem; color: #FFFFFF; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .hero-title { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: #FFFFFF; text-shadow: 0 5px 15px rgba(0,0,0,0.5); max-width: 700px; }
         .hero-tags { margin-bottom: 2.5rem; font-weight: 400; font-size: 1.05rem; color: var(--secondary-light); letter-spacing: 2px; }
-        .hero-tags span { display: inline-block; margin: 0 10px; }
-        .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; }
+        .hero-tags span { display: inline-block; margin-right: 15px; }
+        .hero-buttons { display: flex; gap: 1.5rem; justify-content: flex-start; }
 
+        /* Mobile specific fixes for Hero */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
-            .hero-tags { font-size: 0.9rem; }
-            .hero-buttons { flex-direction: column; width: 100%; }
-            .hero-buttons .btn { width: 100%; } /* Fixed button width for mobile */
+            .hero { justify-content: center; text-align: center; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .hero-title { font-size: 2.8rem; text-align: center; max-width: 100%; }
+            .hero-tags { text-align: center; }
+            .hero-tags span { margin: 0 8px; }
+            .hero-buttons { flex-direction: column; width: 100%; justify-content: center; }
+            .hero-buttons .btn { width: 100%; }
+            /* Mobile overlay: Dark at top/bottom, clear in middle */
+            .hero-overlay { background: linear-gradient(to bottom, rgba(11, 11, 11, 0.9) 0%, rgba(11, 11, 11, 0.4) 50%, rgba(11, 11, 11, 0.95) 100%); }
+            .hero-bg { background-position: 75% center; } /* Shift focus to hands on mobile */
         }
 
-        .highlights-section { background-color: #070707; padding: 6rem 0; overflow: hidden; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        /* --- HIGHLIGHTS SECTION (RESTORED DESKTOP LAYOUT) --- */
+        .highlights-section { background-color: #0b0b0b; padding: 6rem 0; overflow: hidden; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
         .highlights-container { display: flex; align-items: center; gap: 4rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        .highlights-text { flex: 0 0 35%; }
-        .highlights-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: #FFFFFF; }
+        .highlights-text { flex: 0 0 35%; text-align: left; }
+        .highlights-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: #FFFFFF; font-family: var(--font-heading); }
         .highlights-title span { color: var(--secondary); font-style: italic; font-weight: normal;}
         .highlights-text p { color: #cccccc; font-size: 1.1rem; line-height: 1.8; }
         
@@ -243,6 +233,7 @@
             -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
             mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         }
+        /* Fixed Gap Glitch Calculation: Translates exactly half width including the correct gap margin */
         .highlights-track { display: flex; gap: 1.5rem; width: max-content; animation: scrollSlider 30s linear infinite; }
         .highlights-track:hover { animation-play-state: paused; }
         
@@ -252,7 +243,10 @@
         .highlight-img-wrapper:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: var(--shadow-gold);}
         .highlight-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
-        @keyframes scrollSlider { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollSlider { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(calc(-50% - 0.75rem)); } /* Perfect Gap Adjustment ensures NO blank space */
+        }
 
         @media (max-width: 992px) {
             .highlights-container { flex-direction: column; text-align: center; }
@@ -307,6 +301,11 @@
         #lightbox.show { display: flex; opacity: 1; }
         #lightbox img { max-width: 90%; max-height: 90vh; border: 2px solid var(--secondary); border-radius: 4px; box-shadow: var(--shadow-gold);}
         .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; }
+
+        /* Adjusted margin-bottom to reduce gap on mobile */
+        #pricing {
+            margin-bottom: 2rem !important; 
+        }
 
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
         .pricing-card { padding: 0; display: flex; flex-direction: column; border: none; overflow: hidden;}
@@ -471,7 +470,7 @@
     <div id="toast-container"></div>
 
     <div id="loader">
-        <div class="loader-logo">Lakshita Studio</div>
+        <div class="loader-logo">Lakshita Mehandii Studio</div>
     </div>
 
     <!-- Floating Particles Container -->
@@ -481,7 +480,7 @@
         
         <header id="header">
             <div class="container nav-container">
-                <a href="#" class="logo">Lakshita Studio</a>
+                <a href="#" class="logo">Lakshita Mehandii Studio</a>
                 
                 <nav class="nav-links" id="nav-links">
                     <a href="#home" class="active">Home</a>
@@ -493,9 +492,6 @@
                 </nav>
 
                 <div class="nav-actions">
-                    <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
                     <button class="mobile-menu-btn" id="mobile-menu-btn">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -611,7 +607,8 @@
             <img src="" alt="Zoomed Image" id="lightbox-img">
         </div>
 
-        <section id="pricing" class="container" style="background: var(--glass-bg); padding: 5rem 2rem; border-radius: 12px; margin-bottom: 5rem;">
+        <!-- Reduced margin-bottom here as well to be safe -->
+        <section id="pricing" class="container" style="background: var(--glass-bg); padding: 5rem 2rem; border-radius: 12px; margin-bottom: 2rem;">
             <h2 class="section-title reveal">Curated Packages</h2>
             <div class="pricing-grid reveal" id="public-pricing-grid">
                 <!-- Injected via JS -->
@@ -721,8 +718,8 @@
                         <p style="color: #ccc; margin-bottom: 1.5rem; line-height: 1.6;">Crafting luxurious, intricate, and organic henna designs for your most cherished moments. Serving smiles across Rajsamand and beyond.</p>
                         <div class="social-links">
                             <a href="https://www.instagram.com/lakshita_mehandiii?igsh=b2hvMW92Z2h1OW84" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="javascript:void(0)" style="cursor: default;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="javascript:void(0)" style="cursor: default;"><i class="fab fa-pinterest-p"></i></a>
                         </div>
                     </div>
                     <div class="footer-col">
@@ -737,6 +734,7 @@
                     <div class="footer-col">
                         <h4>Contact</h4>
                         <ul class="footer-links">
+                            <li><i class="fas fa-user text-gold" style="width: 20px;"></i> Lakshita Kumawat</li>
                             <li><i class="fas fa-phone text-gold" style="width: 20px;"></i> +91 99825 93535</li>
                             <li><i class="fas fa-map-marker-alt text-gold" style="width: 20px;"></i> Rajsamand, Rajasthan</li>
                         </ul>
@@ -981,7 +979,6 @@
             init: () => {
                 UI.handleLoader();
                 UI.setupScrollEffects();
-                UI.setupThemeToggle();
                 UI.setupMobileMenu();
                 UI.setupAnimations();
                 UI.setupLightbox();
@@ -1026,31 +1023,6 @@
                     if (window.scrollY > 500) fabTop.classList.add('show');
                     else fabTop.classList.remove('show');
                 });
-            },
-
-            setupThemeToggle: () => {
-                const toggle = document.getElementById('theme-toggle');
-                
-                const savedTheme = localStorage.getItem('theme');
-                if(savedTheme) {
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark'); // Default to dark for this vibe
-                }
-
-                toggle.addEventListener('click', () => {
-                    let current = document.documentElement.getAttribute('data-theme');
-                    let next = current === 'dark' ? 'light' : 'dark';
-                    document.documentElement.setAttribute('data-theme', next);
-                    localStorage.setItem('theme', next);
-                    toggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-                });
-
-                if(document.documentElement.getAttribute('data-theme') === 'dark') {
-                    toggle.innerHTML = '<i class="fas fa-sun"></i>';
-                } else {
-                    toggle.innerHTML = '<i class="fas fa-moon"></i>';
-                }
             },
 
             setupMobileMenu: () => {
